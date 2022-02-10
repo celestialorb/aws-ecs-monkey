@@ -20,12 +20,16 @@ p.add("--action-dry-run", env_var="AWS_ECS_MONKEY_ACTION_DRY_RUN", action="store
 config = p.parse_args()
 logger.info(config)
 
-if config.action_type == "nodes":
-    nodes.terminate(aws_ecs_cluster_name=config.cluster_name,
-                    dry_run=config.action_dry_run)
-if config.action_type == "services":
-    services.roll(aws_ecs_cluster_name=config.cluster_name,
-                  dry_run=config.action_dry_run)
-if config.action_type == "tasks":
-    tasks.stop(aws_ecs_cluster_name=config.cluster_name,
-               dry_run=config.action_dry_run)
+# TODO: implement better error logic
+try:
+    if config.action_type == "nodes":
+        nodes.terminate(aws_ecs_cluster_name=config.cluster_name,
+                        dry_run=config.action_dry_run)
+    if config.action_type == "services":
+        services.roll(aws_ecs_cluster_name=config.cluster_name,
+                      dry_run=config.action_dry_run)
+    if config.action_type == "tasks":
+        tasks.stop(aws_ecs_cluster_name=config.cluster_name,
+                   dry_run=config.action_dry_run)
+except Exception as ex:
+    logger.exception(ex)
