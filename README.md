@@ -10,9 +10,9 @@ that can be set via the CLI or by environment variables. Usage information can b
 The container image uses the Python script as an entrypoint, so adding the appropriate flags should be all that's necessary.
 
 The main argument is the action type. This project currently provides three different ways of injecting chaos into the cluster:
-1. [`nodes`]: termination of a random node
-2. [`services`]: force deployment of a random service
-3. [`tasks`]: stops a random task
+1. `nodes`: termination of a random node
+2. `services`: force deployment of a random service
+3. `tasks`: stops a random task
 
 ```
 usage: main.py [-h] [-c CONFIG_FILE] [--cluster-name CLUSTER_NAME] [--action-type {nodes,services,tasks}] [--action-dry-run]
