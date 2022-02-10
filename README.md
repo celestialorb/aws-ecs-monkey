@@ -37,6 +37,17 @@ Some random ideas I have in mind:
 - Inclusion/exclusion based off of Docker labels in ECS tasks.
 - Ability to inject larger amount of chaos (i.e. disrupt more than one resource at a time)
 
+## AWS IAM Permissions
+Since this project interacts with the AWS API, it will need to be given the proper AWS IAM permissions. This project makes use of the following actions:
+- autoscaling:TerminateInstanceInAutoScalingGroup
+- ecs:DescribeContainerInstances
+- ecs:DescribeServices
+- ecs:ListContainerInstances
+- ecs:ListTasks
+- ecs:ListServices
+- ecs:StopTask
+- ecs:UpdateService
+
 ## Donate
 If you found that this project helped you out, or want to encourage further development feel free to make a small donation!
 
