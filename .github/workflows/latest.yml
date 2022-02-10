@@ -1,4 +1,4 @@
-name: Container Image Publish
+name: Publish Latest Container Image
 on: [push]
 jobs:
   build-container-image:
